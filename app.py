@@ -35,7 +35,7 @@ def streamlit_config():
     st.markdown(page_background_color, unsafe_allow_html=True)
 
     # title and position
-    st.markdown(f'<h1 style="text-align: center;">AI-Powered Resume Analyzer and <br> LinkedIn Scraper with Selenium</h1>',
+    st.markdown(f'<h1 style="text-align: center;">NLP Course Project<br>AI-Powered Resume Analyzer </h1><br><h4>K Sayee Sumanth - CB.EN.U4CSE20035<br>K Bharath Suhas - CB.EN.U4CSE20034<br>T Harshith - CB.EN.U4CSE20068<br>P Komal Harshit - CB.EN.U4CSE20047<br>S Vasanth Kumar- CB.EN.U4CSE20057</h4>',
                 unsafe_allow_html=True)
 
 
