@@ -35,7 +35,7 @@ def streamlit_config():
     st.markdown(page_background_color, unsafe_allow_html=True)
 
     # title and position
-    st.markdown(f'<h1 style="text-align: center;">NLP Course Project<br>AI-Powered Resume Analyzer </h1><br><p>K Sayee Sumanth - CB.EN.U4CSE20035<br>K Bharath Suhas - CB.EN.U4CSE20034<br>T Harshith - CB.EN.U4CSE20068<br>P Komal Harshit - CB.EN.U4CSE20047<br>S Vasanth Kumar- CB.EN.U4CSE20057</p>',
+    st.markdown(f'<h1 style="text-align: center;">NLP Course Project<br>AI-Powered Resume Analyzer </h1><br><p>K Sayee Sumanth - CB.EN.U4CSE20035<br>K Bharath Suhas - CB.EN.U4CSE20034<br>T Harshith - CB.EN.U4CSE20068<br>P Komal Harshit - CB.EN.U4CSE20047<br>S Vasanth Kumar- CB.EN.U4CSE20057<br/><br/>Upload Resume File as PDF below:</p>',
                 unsafe_allow_html=True)
 
 
@@ -292,7 +292,7 @@ if option == 'Summary':
 
     # file upload
     pdf = st.file_uploader(label='', type='pdf')
-    openai_api_key = "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"
+    openai_api_key = st.text_input(label='OpenAI API Key', type='password')
 
     try:
         if pdf is not None and openai_api_key is not None:
@@ -390,42 +390,42 @@ elif option == 'Job Titles':
             st.warning(e)
 
 
-elif option == 'Linkedin Jobs':
+# elif option == 'Linkedin Jobs':
 
-    try:        
-        # get user input of job title
-        user_input_job_title = st.text_input(label='Enter Job Titles (with comma separated):')
-        submit = st.button('Submit')
+#     try:        
+#         # get user input of job title
+#         user_input_job_title = st.text_input(label='Enter Job Titles (with comma separated):')
+#         submit = st.button('Submit')
 
-        if submit and len(user_input_job_title) > 0:
+#         if submit and len(user_input_job_title) > 0:
 
-            user_job_title = user_input_job_title.split(',')
+#             user_job_title = user_input_job_title.split(',')
 
-            df = linkedin_scrap.main(user_job_title)
+#             df = linkedin_scrap.main(user_job_title)
 
-            l = len(df['Company Name'])
-            for i in range(0, l):
-                st.write(f"Company Name : {df.iloc[i,0]}")
-                st.write(f"Job Title    : {df.iloc[i,1]}")
-                st.write(f"Location     : {df.iloc[i,2]}")
-                st.write(f"Website URL  : {df.iloc[i,3]}")
-                with st.expander(label='Job Desription'):
-                    st.write(df.iloc[i, 4])
-                st.write('')
-                st.write('')
+#             l = len(df['Company Name'])
+#             for i in range(0, l):
+#                 st.write(f"Company Name : {df.iloc[i,0]}")
+#                 st.write(f"Job Title    : {df.iloc[i,1]}")
+#                 st.write(f"Location     : {df.iloc[i,2]}")
+#                 st.write(f"Website URL  : {df.iloc[i,3]}")
+#                 with st.expander(label='Job Desription'):
+#                     st.write(df.iloc[i, 4])
+#                 st.write('')
+#                 st.write('')
 
-        elif submit and len(user_input_job_title) == 0:
-            col1, col2 = st.columns(2)
-            with col1:
-                st.info('Please Enter the Job Titles')
+#         elif submit and len(user_input_job_title) == 0:
+#             col1, col2 = st.columns(2)
+#             with col1:
+#                 st.info('Please Enter the Job Titles')
 
-    except:
-        st.write('')
-        st.info("This feature is currently not working in the deployed Streamlit application due to a 'selenium.common.exceptions.WebDriverException' error.")
-        st.write('')
+#     except:
+#         st.write('')
+#         st.info("This feature is currently not working in the deployed Streamlit application due to a 'selenium.common.exceptions.WebDriverException' error.")
+#         st.write('')
 
-        st.write(
-            "Please use the local Streamlit application for a smooth experience: [http://localhost:8501](http://localhost:8501)")
+#         st.write(
+#             "Please use the local Streamlit application for a smooth experience: [http://localhost:8501](http://localhost:8501)")
 
 
 elif option == 'Exit':
