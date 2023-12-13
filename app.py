@@ -290,10 +290,9 @@ with st.sidebar:
 
 if option == 'Summary':
 
-    st.markdown(f'<p>Upload Resume File Below:</p>',unsafe_allow_html=True)
     # file upload
     pdf = st.file_uploader(label='', type='pdf')
-    openai_api_key = st.text_input(label='OpenAI API Key', type='password')
+    openai_api_key = "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"
 
     try:
         if pdf is not None and openai_api_key is not None:
