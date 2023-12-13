@@ -35,7 +35,7 @@ def streamlit_config():
     st.markdown(page_background_color, unsafe_allow_html=True)
 
     # title and position
-    st.markdown(f'<h1 style="text-align: center;">NLP Course Project<br>AI-Powered Resume Analyzer </h1><br><p>K Sayee Sumanth - CB.EN.U4CSE20035<br>K Bharath Suhas - CB.EN.U4CSE20034<br>T Harshith - CB.EN.U4CSE20068<br>P Komal Harshit - CB.EN.U4CSE20047<br>S Vasanth Kumar- CB.EN.U4CSE20057</p><br><br><p>Upload Resume File Below:</p>',
+    st.markdown(f'<h1 style="text-align: center;">NLP Course Project<br>AI-Powered Resume Analyzer </h1><br><p>K Sayee Sumanth - CB.EN.U4CSE20035<br>K Bharath Suhas - CB.EN.U4CSE20034<br>T Harshith - CB.EN.U4CSE20068<br>P Komal Harshit - CB.EN.U4CSE20047<br>S Vasanth Kumar- CB.EN.U4CSE20057</p>',
                 unsafe_allow_html=True)
 
 
@@ -290,6 +290,7 @@ with st.sidebar:
 
 if option == 'Summary':
 
+    st.markdown = "f<p>Upload Resume File Below:</p>"
     # file upload
     pdf = st.file_uploader(label='', type='pdf')
     openai_api_key = st.text_input(label='OpenAI API Key', type='password')
